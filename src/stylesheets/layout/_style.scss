@@ -1,0 +1,18 @@
+.button-big{
+    @include displayInline(middle);
+
+    color: $white;
+    @include textos(listing_text, null, null, 700);
+    padding: 10px 20px;
+    min-width: 135px;
+    background: $secondary-color;
+    border-radius: 50px;
+
+    @include Animationcss(all 0.3s ease);
+
+    outline: none;
+
+    &:hover{
+        color: $primary-color;
+    }
+}

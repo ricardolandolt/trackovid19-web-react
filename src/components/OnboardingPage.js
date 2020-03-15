@@ -40,10 +40,10 @@ export default class OnboardingPage extends Component {
     return (
       <div className="row">
         <div className="col-12">
-            <div className="">
-              <h1>{currentStep.title}</h1>
-              <p>{currentStep.description}</p>
-              <button className="btn btn-primary" onClick={this.nextStep}>
+            <div className="d-block text-center">
+              <h1 className="h4 font-weight-bold">{currentStep.title}</h1>
+              <p className="">{currentStep.description}</p>
+              <button className="button-big" onClick={this.nextStep}>
                 Seguinte
               </button>
             </div>
