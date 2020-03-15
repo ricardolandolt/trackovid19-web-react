@@ -23,8 +23,7 @@ function App() {
         <div className="container-fluid">
           <div className="header">
               <div className="d-flex align-items-center">
-              <img src={logo} alt="Logo" style={{ width: "50px" }} />
-              <span>TrackCovid</span>
+              <img src={logo} alt="Logo" style={{ width: "110px" }} />
               </div>
             </div>
           </div>
