@@ -1,35 +1,20 @@
-//import decode from "jwt-decode";
+import decode from "jwt-decode";
 import { API_URL } from "./config";
 import baseService from "./base.service";
-import { putHeader, postHeader } from "./helpers/authHelpers";
+import { postHeader } from "./helpers/authHelpers";
 
 export const authService = {
-  register,
   login,
-  accountExist,
   getToken,
   logout,
   loggedIn,
   postError,
   getProfile,
-  forgotPassword,
-  changePassword,
-  createAccount,
-  activateAccount,
+  createAccount
 };
-
-const baseRoute = "account/";
 
 function postError(obj) {
   return baseService.register(obj, "/errors/");
-}
-
-function register(obj) {
-  return baseService.register(obj, "/registration/");
-}
-
-function accountExist(obj) {
-  return baseService.register(obj, `${baseRoute}email/`);
 }
 
 function login(email, password) {
@@ -121,30 +106,6 @@ function logout() {
   //navigate("/");
 }
 
-function forgotPassword(email) {
-  const requestOptions = {
-    method: "GET",
-    headers: { "Content-Type": "application/json", Origin: API_URL }
-  };
-
-  return fetch(`${API_URL + baseRoute}forgotPassword/${email}`, requestOptions).then(
-    baseService.handleResponse,
-    baseService.handleError
-  );
-}
-
-function changePassword(oldPassword, newPassword) {
-  const requestOptions = {
-    ...putHeader(),
-    body: JSON.stringify({ oldPassword, newPassword })
-  };
-
-  return fetch(`${API_URL}/account/changePassword`, requestOptions).then(
-    baseService.handleResponse,
-    baseService.handleError
-  );
-}
-
 function createAccount(obj) {
   //smarkio automation field ID
   const df_uid = document.querySelector('input[name="lead[df_uid]"]');
@@ -159,43 +120,6 @@ function createAccount(obj) {
   };
 
   return fetch(`${API_URL}customer`, requestOptions).then(baseService.handleResponse, baseService.handleError);
-}
-
-function activateAccount(obj) {
-  //smarkio automation field ID
-  const df_uid = document.querySelector('input[name="lead[df_uid]"]');
-
-  if (df_uid && df_uid.value) {
-    obj.automationId = df_uid.value;
-  }
-
-  return resetPassword(obj);
-}
-
-function resendActivationLink(email) {
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email })
-  };
-
-  return fetch(`${API_URL}/account/resendActivationLink`, requestOptions).then(
-    baseService.handleResponse,
-    baseService.handleError
-  );
-}
-
-function resetPassword(obj) {
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(obj)
-  };
-
-  return fetch(`${API_URL}account/resetPassword`, requestOptions).then(
-    baseService.handleResponse,
-    baseService.handleError
-  );
 }
 
 export default authService;
