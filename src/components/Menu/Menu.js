@@ -8,8 +8,8 @@ export default class Menu extends Component {
     this.state = {
       menuItems: [
         { name: "Dashboard", icon: "fas fa-tachometer-alt", url: "/" },
-        { name: "Questionário", icon: "fas fa-address-card", url: "/terms" },
-        { name: "Contactos", icon: "fas fa-address-card", url: "/about" },
+        { name: "Questionário", icon: "fas fa-address-card", url: "/about" },
+        { name: "Contactos", icon: "fas fa-address-card", url: "/terms" },
         { name: "Mapa", icon: "fas fa-address-card", url: "/" }
       ]
     };
