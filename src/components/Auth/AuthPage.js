@@ -16,7 +16,7 @@ export default class AuthPage extends Component {
   }
 
   render() {
-    const buttons = providers => providers.map(provider => <OAuth provider={provider} key={provider} />);
+    const buttons = providers => providers.map(provider => <OAuth provider={provider} key={"provider-" + provider.name} />);
 
     return (
       <div className="row">
