@@ -21,9 +21,6 @@ function watch_files() {
 		.pipe(gulp.dest('src/stylesheets/'));
 	});
 
-	gulp.src(['src/stylesheets/main.css'])
-	.pipe(concat('mainWP.css'))
-	.pipe(gulp.dest('src/stylesheets'));
 }
 
 /*

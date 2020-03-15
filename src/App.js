@@ -18,30 +18,34 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <Router>
+      <Router>
+        <div className="header-row">
         <div className="container-fluid">
           <div className="header">
-            <div className="d-flex align-items-center">
-            <img src={logo} alt="Logo" style={{ width: "50px" }} />
-            <span>TrackCovid</span>
+              <div className="d-flex align-items-center">
+              <img src={logo} alt="Logo" style={{ width: "50px" }} />
+              <span>TrackCovid</span>
+              </div>
             </div>
           </div>
+        </div>
+        <div className="content-row">
           <div className="main">
-            <Switch>
-              <Route exact path="/about" component={AboutPage} />
-              <Route exact path="/terms" component={TermsPage} />
-              <Route exact path="/login" component={LoginPage} />
-              <Route exact path="/onboarding" component={OnboardingPage} />
-              <PrivateRoute exact path="/" component={DashPage} />
-            </Switch>
-          </div>
-          <div className="footer">
-            <MenuComponent />
-          </div>
-          </div>
-        </Router>
-      </div>
+            <div className="container-fluid">
+              <Switch>
+                <Route exact path="/about" component={AboutPage} />
+                <Route exact path="/terms" component={TermsPage} />
+                <Route exact path="/login" component={LoginPage} />
+                <Route exact path="/onboarding" component={OnboardingPage} />
+                <PrivateRoute exact path="/" component={DashPage} />
+              </Switch>
+            </div>
+            </div>
+        </div>
+        <div className="site-footer">
+          <MenuComponent />
+        </div>
+      </Router>
     </Provider>
   );
 }
