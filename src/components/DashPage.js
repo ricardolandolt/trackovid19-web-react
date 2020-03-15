@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import DashboardCard from "./Cards/DashboardCard";
 import { Link } from "react-router-dom";
+import UserInfo from "./User/UserInfo";
 
 export default class DashPage extends Component {
   render() {
     return (
       <div className="row">
         <div className="col-12">
-          <h1>Hello Covid!</h1>
           <div className="row">
             <div className="col-12">
+              <UserInfo />
               <Link to="/about" className="btn btn-primary text-white w-100">Atualizar o meu estado</Link>
             </div>
           </div>

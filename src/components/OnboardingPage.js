@@ -7,10 +7,10 @@ export default class OnboardingPage extends Component {
     this.state = {
       currentStepNum: 0,
       steps: [
-        { title: "Protecção de dados", description: "Os seus dados são anónimos...", img: "" },
-        { title: "Altere o seus estado", description: "Os seus dados são anónimos...", img: "" },
-        { title: "Confira a sua área", description: "Os seus dados são anónimos...", img: "" },
-        { title: "Verifique os seus contactos", description: "Os seus dados são anónimos...", img: "" }
+        { title: "Protecção de dados", description: "Os seus dados são anónimos e confidenciais. Os seus contactos não terão acesso a seu estado.", img: "" },
+        { title: "Altere o seus estado", description: "Atualize o seu estado atual. Preencha o formulário de sintomas para mais informações.", img: "" },
+        { title: "Confira a sua área", description: "Tenha acesso a informações relativas à sua área.", img: "" },
+        { title: "Verifique os seus contactos", description: "Verifique a situação dos seus contactos.", img: "" }
       ]
     };
 
@@ -36,7 +36,7 @@ export default class OnboardingPage extends Component {
   render() {
     const { steps, currentStepNum } = this.state;
     const currentStep = steps[currentStepNum];
-    
+
     return (
       <div className="row">
         <div className="col-12">

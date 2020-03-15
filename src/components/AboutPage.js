@@ -38,6 +38,7 @@ export class AboutPage extends Component {
       <div>
         <h1>About</h1>
         <form onSubmit={handleSubmit(this.showResults)}>
+          
           {options.map((o, i) => (
             <div key={"opt-cont-" + o.value + "-" + i} className={"p-3"}>
               <Field
