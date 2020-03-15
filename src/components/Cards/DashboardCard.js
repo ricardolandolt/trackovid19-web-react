@@ -6,11 +6,11 @@ export default class DashboardCard extends Component {
     const { title, subTitle, icon, footerLabel } = this.props;
 
     return (
-      <div className="card">
+      <div className="card dash-card">
         <div className="card-body">
-          <h3>{title}</h3>
-          <p>{subTitle}</p>
-          <i className={"position-absolute text-primary " + icon}></i>
+          <h3 className="h4">{title}</h3>
+          <span className="d-block h5">{subTitle}</span>
+          <i className={icon}></i>
         </div>
         <div className="card-footer">
           <p className="text-muted">{footerLabel}</p>

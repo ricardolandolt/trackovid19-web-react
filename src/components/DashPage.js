@@ -11,7 +11,7 @@ export default class DashPage extends Component {
           <div className="row">
             <div className="col-12">
               <UserInfo />
-              <Link to="/about" className="btn btn-primary text-white w-100">Atualizar o meu estado</Link>
+              <Link to="/about" className="button-big w-100">Atualizar o meu estado</Link>
             </div>
           </div>
           <div className="row">

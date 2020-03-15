@@ -1,11 +1,27 @@
 .header{
     padding: 10px 0;
 }
+.dash-card{
+    border-radius: 20px;
+    box-shadow: 0px 3px 6px 0px rgba(37,51,75,0.1), 0px 10px 20px 0px rgba(37,51,75,0.1); 
+
+    & .card-body{
+        & i{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+
+            color: $secondary-color;
+            font-size: 18px;
+        }
+    }
+}
 .button-big{
     @include displayInline(middle);
 
-    color: $white;
+    color: $white !important;
     @include textos(listing_text, null, null, 700);
+    text-align: center;
     padding: 10px 20px;
     min-width: 135px;
     background: $secondary-color;
