@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { API_URL } from "../../services/config";
+import authActions from "../../redux/reducers/authentication/auth.actions";
 
-export default class OAuth extends Component {
+export class OAuth extends Component {
   constructor(props) {
     super(props);
 
@@ -95,3 +97,19 @@ OAuth.propTypes = {
   provider: PropTypes.object.isRequired
   //socket: PropTypes.object.isRequired
 };
+
+const mapStateToProps = state => {
+  const { auth } = state;
+
+  return {
+    user: auth.user
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    doLogin: provider => dispatch(authActions.login(provider))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(OAuth);

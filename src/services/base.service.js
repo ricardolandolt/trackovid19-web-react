@@ -1,4 +1,4 @@
-import { API_URL } from '../config';
+import { API_URL } from './config';
 
 function handleResponse(response) {
   return new Promise((resolve, reject) => {

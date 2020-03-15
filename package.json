@@ -9,9 +9,12 @@
     "bootstrap": "^4.4.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
-    "reactstrap": "^8.4.1"
+    "reactstrap": "^8.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,6 +35,28 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ],
+          "alias": {
+            "~": "./src",
+            "src": "./src",
+            "clientServices": "./src/services/client",
+            "services": "./src/services/",
+            "reducers": "./src/redux/reducers"
+          }
+        }
+      ]
     ]
   }
 }
