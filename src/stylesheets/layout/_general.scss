@@ -2477,14 +2477,12 @@ body.footer-hidden{
 
 	&.cursor-prev{
 		cursor:pointer;
-		cursor: url('../img/left_cursor.png') 65 47, pointer; 
 	}
 	&.cursor-next{
 		left: auto;
 		right: 0;
 
 		cursor:pointer;
-		cursor: url('../img/right_cursor.png') 65 47, pointer;
 	}
 	
 	@media only screen and (max-width: $responsiveMedia) {
