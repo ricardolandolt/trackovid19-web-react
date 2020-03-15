@@ -15,7 +15,7 @@ export default class OAuth extends Component {
   componentDidMount() {
     const { provider } = this.props;
 
-    fetch(`${API_URL}/${provider}`).then(res => {
+    fetch(`${API_URL}/${provider.name}`).then(res => {
       this.popup.close();
       this.setState({ user: res.user });
     });
@@ -41,7 +41,7 @@ export default class OAuth extends Component {
       height = 600;
     const left = window.innerWidth / 2 - width / 2;
     const top = window.innerHeight / 2 - height / 2;
-    const url = `${API_URL}/${provider}`;
+    const url = `${API_URL}/${provider.name}`;
 
     return window.open(
       url,
@@ -68,7 +68,7 @@ export default class OAuth extends Component {
     const { name, photo } = this.state.user;
     const { provider } = this.props;
     const { disabled } = this.state;
-    const atSymbol = provider === "twitter" ? "@" : "";
+    const atSymbol = provider.anme === "twitter" ? "@" : "";
 
     return (
       <div>
@@ -80,8 +80,9 @@ export default class OAuth extends Component {
           </div>
         ) : (
           <div className="button-wrapper fadein-fast">
-            <button onClick={this.startAuth} className={`${provider} ${disabled} button`}>
-              <span>{provider}</span>
+            <button onClick={this.startAuth} className={`btn btn-${provider.name} ${disabled}`}>
+              <i className={provider.icon}></i>
+              {provider.name}
             </button>
           </div>
         )}
@@ -91,6 +92,6 @@ export default class OAuth extends Component {
 }
 
 OAuth.propTypes = {
-  provider: PropTypes.string.isRequired
+  provider: PropTypes.object.isRequired
   //socket: PropTypes.object.isRequired
 };
