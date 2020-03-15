@@ -1,0 +1,257 @@
+/***************** MIXINGS *****************/
+@function getHeightLines($tipo, $lines:4){
+	$lineHeight: 1;
+
+	$typo: map-get($typography, $tipo);
+	$lineHeight: map-get($typo, 'height');
+
+	$height: $lineHeight * $lines;
+
+	@return #{$height}em;
+}
+@mixin divOverflow($height, $max-height:auto) {
+	/* DIVS COM OVERFLOW */
+	display:block;
+	overflow: hidden;
+	@if $max-height != auto{
+		max-height:$max-height;
+	}@else{
+		height:$height;
+	}
+}
+@mixin textos($tipo, $size:null, $height: null, $weight: null, $range:0){
+	$typo: map-get($typography, $tipo);
+
+	@if($size == null){
+		$size: map-get($typo, 'size');
+	}
+	@if($height == null){
+		$height: map-get($typo, 'height');
+	}
+	@if($weight == null){
+		$weight: map-get($typo, 'weight');
+	}
+	@if($range == 0){
+		$range: map-get($typo, 'range');
+	}
+	
+	font-size:$size !important;
+	
+	@if $range>0{
+		font-size: -webkit-calc(( #{$size} - #{$range}px ) + #{$range} * (100vw - #{$globalMedia}px) / (1920 - #{$globalMedia})) !important;
+		font-size: -moz-calc(( #{$size} - #{$range}px ) + #{$range} * (100vw - #{$globalMedia}px) / (1920 - #{$globalMedia})) !important;
+		font-size: calc(( #{$size} - #{$range}px ) + #{$range} * (100vw - #{$globalMedia}px) / (1920 - #{$globalMedia})) !important;
+	}
+	line-height:$height !important;
+	font-weight:$weight;
+}
+@mixin buttons($size:big){
+	@include displayInline(top);
+
+	position:relative;
+	width: auto;
+	outline: none !important;
+	height: auto;
+
+	@if $size==normal{
+		background-color:transparent !important;
+
+		color: $secondary-color;
+		@include textos(listing_text);
+	}@else{		
+		@include textos(listing_text);
+		letter-spacing: 0 !important;
+
+		padding:10px 20px !important;
+		max-width: 210px;
+		border-radius: 50px !important;
+		text-align: center;
+
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+
+		.style-light &{
+			color: $dark-gray;
+			border: 1px solid $light-gray;
+			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.2);
+			background: $white;
+		}
+		.style-dark &{
+			color: $secondary-color;
+			background: $white;
+		}
+		
+		&:hover{
+			color: $white;
+			background: $primary-color;
+
+			.style-dark &{
+				color: $white;
+				background: $dark-gray;
+			}
+		}
+	}
+
+	overflow: hidden;
+	z-index: 10;
+	@include Animationcss(all 0.5s ease);
+}
+@mixin Acceleration {
+	/* Force Hardware Acceleration in WebKit */
+	@each $prefix in $browserPrefixes {
+		#{$prefix}transform: translate3d(0, 0, 0) translateZ(1px);
+	}
+
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+@mixin Animationcss($animation1, $animation2:null, $animation3:null) {
+	/* ANIMATIONSCSS */
+	@if ($animation3) {
+		@each $prefix in $browserPrefixes {
+			#{$prefix}transition: $animation1, $animation2, $animation3
+		}
+    } @else if ($animation2) {
+		@each $prefix in $browserPrefixes {
+			#{$prefix}transition: $animation1, $animation2
+		}
+    } @else if ($animation1) {
+		@each $prefix in $browserPrefixes {
+			#{$prefix}transition: $animation1
+		}
+    }
+}
+
+
+@mixin pseudoElements{
+	/* PSEUDO ELEMENTS */
+	content:'';
+	display:block;
+	@include Animationcss(all 0.3s linear);
+}
+
+@mixin displayInline($align:''){
+	/* DISPLAY INLINE BLOCK */
+	display:inline-block;
+
+	@if $align != "" {
+		vertical-align: $align;
+	}
+}
+
+@mixin grayscale {
+	/* GRAYSCALE */
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray; /* IE 6-9 */
+}
+
+@mixin transform($transforms) {
+	/* TRANSFORMS */
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin divOutter($margin) {
+	/* DIVS PARA FORA DO ECRA */
+	display:block !important;
+	width:auto !important;
+	margin:0 $margin;
+}
+
+@mixin positions($position:absolute, $half:false, $important:''){
+	/*Positioning*/
+	position:$position !important;
+	
+	@if $half==false{
+		top:0 #{$important};
+		left:0 #{$important};
+		width:100%;
+		height:100%;
+	} @else{
+		top:50% #{$important};
+		left:50% #{$important};
+		
+		@include transform(translate(-50%, -50%) #{$important});
+	}
+}
+
+@mixin closeButton($size:15px, $color: $primary-color, $hover:$secondary-color){
+	font-family: arial, 'sans-serif';
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-size: 0;
+
+	width: $size;
+	height: $size;
+
+  background: none;
+
+	cursor: pointer;
+	z-index:10;
+
+	&:before,
+	&:after{
+			content: "";
+			position: absolute;
+			top: 10px;
+			left: 0;
+			display: block;
+			margin: auto;
+
+			width: $size;
+			height: 0;
+			border-top: 1px solid $color;
+
+			transform-origin: center;
+			@include Animationcss(all 0.3s ease);
+	}
+
+	&:before{
+		@include transform(rotate(45deg));
+	}
+	&:after{
+		@include transform(rotate(-45deg));
+	}
+
+	&:hover{
+		&:before{
+				@include transform(rotate(25deg));
+		}
+		&:after{
+				@include transform(rotate(-25deg));
+		}
+	}
+}
+@mixin designSvg($appeared:false, $dash:200, $element: &){
+	stroke-width:1;
+	stroke-miterlimit:5;
+
+	stroke-dasharray: $dash;
+	stroke-dashoffset: $dash;
+
+	fill-opacity: 0;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-iteration: 1;
+
+	@if($appeared==true){
+		@at-root #{$element}{
+			animation-name: svgDrawLine, svgFadeStroke, svgFillIn;
+			animation-duration: 0.8s, 0.5s, 0.5s;
+			animation-delay: 0s, 0.6s, 0.6s;
+		}
+	} @else {
+		animation-name: svgDrawLine, svgFadeStroke, svgFillIn;
+		animation-duration: 0.8s, 0.5s, 0.5s;
+		animation-delay: 0s, 0.6s, 0.6s;
+	}
+}

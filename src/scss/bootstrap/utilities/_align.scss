@@ -1,0 +1,17 @@
+// stylelint-disable declaration-no-important
+
+.align-baseline    { vertical-align: baseline !important; } // Browser default
+.align-top         { vertical-align: top !important; }
+.align-middle      { vertical-align: middle !important; }
+.align-bottom      { vertical-align: bottom !important; }
+.align-text-bottom { vertical-align: text-bottom !important; }
+.align-text-top    { vertical-align: text-top !important; }
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .align#{$infix}-top         { vertical-align: top !important; }
+    .align#{$infix}-middle      { vertical-align: middle !important; }
+    .align#{$infix}-bottom      { vertical-align: bottom !important; }
+  }
+}

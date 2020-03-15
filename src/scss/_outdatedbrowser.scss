@@ -1,0 +1,45 @@
+#outdated {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	text-align: center;
+	z-index:150000000;
+	background-color: $primary-color;
+
+	& > div{
+		display: flex;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+	}
+
+	h6 {
+		display: block;
+		color: $white;
+		@include textos(subtitle);
+	}
+	p {
+		display: block;
+		color: $white;
+		text-align: center;
+		margin-top: 10px;
+	}
+	#btnUpdateBrowser {
+		@include buttons();
+		display: table;
+		margin: auto;
+		margin-top: 30px;
+	}
+	#btnCloseUpdateBrowser{
+		@include closeButton();
+		display: block;
+		color: $white;
+	}
+	* html & {
+		position: absolute;
+	}
+}
