@@ -8,6 +8,7 @@ import AboutPage from "./components/AboutPage";
 import TermsPage from "./components/TermsPage";
 import LoginPage from "./components/LoginPage";
 import "./App.css";
+import "./stylesheets/main.css";
 import OnboardingPage from "./components/OnboardingPage";
 import Menu from "./components/Menu/Menu";
 
