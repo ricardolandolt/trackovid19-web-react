@@ -1,0 +1,155 @@
+@charset 'ISO-8859';
+
+/***************** VARS *****************/
+$browserPrefixes: -webkit-, -moz-, -ms-, -o-, '';
+$max_width_pag: 810px;
+
+
+$globalMedia: 375;
+$responsiveMedia:960px;
+
+$body-font-family: 'IBM Plex Serif', sans-serif;
+$white: #fff;
+$black: #000;
+$primary-color: #393258;
+$secondary-color: #f9a424;
+$light-gray: #f9f9fb;
+$medium-gray: #dedede;
+$dark-gray: #969997;
+$success-color: #00B37C;
+$warning-color: #ea9a1a;
+$error-color: #e12a13;
+$border-radius: 10px;
+$space_multiplier: 8;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":    $primary-color,
+    "secondary":  $secondary-color,
+    "success":    $success-color,
+		"warning":    $warning-color,
+    "error":      $error-color,
+    "light":      $light-gray,
+    "medium":     $medium-gray,
+		"dark":       $dark-gray,
+		"white":      $white,
+		"black":      $black,
+  ),
+  $theme-colors
+);
+
+/*TYPOGRAPHY*/
+$typography: (
+  title: (
+	size:64px,
+	height:1.2,
+	weight:400,
+	range:34,
+  ),
+  subtitle: (
+	size:24px,
+	height:1.2,
+	weight:400,
+	range:6,
+  ),
+  texts: (
+	size:14px,
+	height:1.6,
+	weight:400,
+	range:2,
+  ),
+  listing_title: (
+	size:18px,
+	height:1.2,
+	weight:400,
+	range:2,
+  ),
+  listing_subtitle: (
+	size:16px,
+	height:1.4,
+	weight:400,
+	range:2,
+  ),
+  listing_text: (
+	size:12px,
+	height:1.2,
+	weight:400,
+	range:0,
+  ),
+  listing_small: (
+	size:10px,
+	height:1.2,
+	weight:400,
+	range:0,
+  )
+);
+
+$sizes: (
+	10: 10%,
+	15: 15%,
+	20: 20%,
+	30: 30%,
+	35: 35%,
+	40: 40%,
+	60: 60%,
+	65: 65%,
+	70: 70%,
+	80: 80%,
+	85: 85%,
+	90: 95%,
+	auto: auto
+);
+
+
+$spacers: (
+	0: 0,
+	1: ($space_multiplier),
+	2: ($space_multiplier * 2),
+	3: ($space_multiplier * 3),
+	4: ($space_multiplier * 4),
+	5: ($space_multiplier * 5),
+	6: ($space_multiplier * 6),
+);
+$spacers_adapt: (
+  1: (
+		size: 8,
+		range: 0,
+  ),
+  2: (
+		size: 12,
+		range: 0,
+	),
+	3:(
+		size: 16,
+		range:0,
+  ),
+  4: (
+		size: 24,
+		range:4,
+  ),
+  5: (
+		size: 32,
+		range:5,
+  ),
+  6: (
+		size: 40,
+		range:10,
+  ),
+  7: (
+		size: 62,
+		range:20,
+  ),
+  8: (
+		size: 80,
+		range:38,
+  ),
+  9: (
+		size: 120,
+		range:42,
+  ),
+  10: (
+		size: 160,
+		range:80,
+  ),
+);
