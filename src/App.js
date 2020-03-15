@@ -8,6 +8,7 @@ import AboutPage from "./components/AboutPage";
 import TermsPage from "./components/TermsPage";
 import LoginPage from "./components/LoginPage";
 import "./App.css";
+import OnboardingPage from "./components/OnboardingPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route exact path="/about" component={AboutPage} />
             <Route exact path="/terms" component={TermsPage} />
             <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/onboarding" component={OnboardingPage} />
             <PrivateRoute exact path="/" component={DashPage} />
           </Switch>
         </Router>
