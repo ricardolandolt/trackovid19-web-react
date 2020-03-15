@@ -38,21 +38,27 @@ export class AboutPage extends Component {
       <div>
         <h1>About</h1>
         <form onSubmit={handleSubmit(this.showResults)}>
-          
           {options.map((o, i) => (
-            <div key={"opt-cont-" + o.value + "-" + i} className={"p-3"}>
+            <div key={"opt-cont-" + o.value + "-" + i} className={"card card-body"}>
               <Field
                 id={"opt-" + o.value}
                 key={"opt-" + o.value + "-" + i}
                 name={"st_status"}
                 component={renderRadio}
-                label={o.label}
+                label={
+                  <>
+                    <h5 className="font-weigth-bold">{o.label}</h5>
+                    <span className="small text-muted">{o.description}</span>
+                  </>
+                }
                 valueToSet={o.value}
                 value={o.value}
               />
             </div>
           ))}
-          <button type="submit" className="btn btn-primary w-100">Confirmar o meu estado</button>
+          <button type="submit" className="btn btn-primary w-100">
+            Confirmar o meu estado
+          </button>
         </form>
       </div>
     );
@@ -64,7 +70,7 @@ AboutPage.propTypes = {};
 const FORM_NAME = "formPatient";
 
 AboutPage = reduxForm({
-  form: FORM_NAME,
+  form: FORM_NAME
   //destroyOnUnmount: false
   //forceUnregisterOnUnmount: true
 })(AboutPage);
