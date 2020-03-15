@@ -10,7 +10,7 @@ export default class Menu extends Component {
         { name: "Dashboard", icon: "fas fa-tachometer-alt", url: "/" },
         { name: "Questionário", icon: "fas fa-address-card", url: "/about" },
         { name: "Contactos", icon: "fas fa-address-card", url: "/terms" },
-        { name: "Mapa", icon: "fas fa-address-card", url: "/" }
+        { name: "Mapa", icon: "fas fa-address-card", url: "/onboarding" }
       ]
     };
   }
