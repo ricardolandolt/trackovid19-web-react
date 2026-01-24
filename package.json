@@ -8,7 +8,7 @@
     "babel-plugin-named-asset-import": "^0.3.2",
     "babel-preset-react-app": "^9.0.0",
     "bootstrap": "^4.4.1",
-    "gulp": "^3.9.1",
+    "gulp": "^5.0.1",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
@@ -30,7 +30,7 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^5.0.1",
     "gulp-babel": "^8.0.0"
   },
   "scripts": {
